@@ -1,0 +1,211 @@
+
+h1 {
+    text-align: center;
+    margin: 0;
+    line-height: 2;
+    color: #fff;
+    font-family: Microsoft JhengHei;
+}
+h2 {
+    font-size: 1.5em;
+    font-family: Microsoft JhengHei;
+    text-align: center;
+    margin: 0.5em 0;
+}
+.wrapper {
+    background-color: #07192e;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.row {
+    margin: 1% auto 0;
+    width: 98vw;
+}
+.row > span {
+    border-radius: 0.5em;
+    display: inline-block;
+    width: 47vw;
+    height: 50vh;
+    vertical-align: top;
+    border:1px solid #333;
+    background-color: #fff;
+    background-position: center;
+}
+.row > span {
+    margin: 0 1vw;
+}
+.map {
+    border-radius: 0.5em;
+    width: 96vw;
+    margin: 0 auto;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+table {
+    width: 94%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-family: Microsoft JhengHei;
+    background-color: #fff;
+}
+td {
+    border:1px solid #79a4e3;
+    padding: .3em .5em;
+    width: auto;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+th {
+    font-size: 1.1em;
+    font-weight: bold;
+    border: 1px solid #79a4e3;
+    padding: .3em .5em;
+    width: 36%;
+    background-color: #d4ebf7;
+    color: #000;
+    text-align: right;
+}
+#arquee {
+  margin: 0 auto;
+  width: 95%;
+  border: 1px solid #79a4e3;
+}
+#arquee .thead {
+    width: 100%;
+    background-color: #e7e7e7;
+    border-bottom: 1px solid #79a4e3;
+}
+#arquee .thead > span {
+    font-family: Microsoft JhengHei;
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    /*width: 33.3%;*/
+    width: 12.5%;
+    padding: 0.5em;
+    color: #000;
+    text-align: center;
+}
+#arquee .thead > span:first-child,
+#marquee div span:first-child {
+  border-right: 1px solid #79a4e3;
+}
+#marquee {
+    /*max-height: 39vh;*/
+    max-height: 19vh;
+    overflow: auto;
+}
+#marquee div span {
+    font-family: Microsoft JhengHei;
+    /*width: 33.3%;*/
+    width: 12.5%;
+    display: inline-block;
+    text-align: center;
+    font-size: 1em;
+    line-height: 2;
+    color: #333!important;
+
+}
+
+#marquee > div:nth-child(even) {
+    background-color: #f3f3f3  ;
+}
+.map {
+    border:1px solid #333
+}
+.Taffic > span {
+    /*vertical-align: top;
+    display: inline-block;
+    width: 60%;*/
+
+    display: block;
+    width: 98%;
+    margin: 0 auto;
+}
+.Taffic > span:last-child {
+    /*width: 40%;*/
+
+    width: 98%;
+    margin: 0 auto;
+    display: block;
+}
+.refreshTime {
+  position: absolute;
+  right: 2vw;
+  top: 2vh;
+  font-size: 0.65em;
+  font-weight: normal;
+  color: #478fc9;
+}
+@media only screen and (max-width:1920px) {
+    #marquee {
+        max-height: 17vh;
+    }
+}
+@media only screen and (max-width:1600px) {
+    th {
+        width: 45%;
+    }
+    #marquee {
+        max-height: 15vh;
+    }
+}
+@media only screen and (max-width:1366px) {
+
+    #marquee {
+        max-height: 15vh;
+    }
+    p-chart[class="p-element"] {
+        height: 20vh!important;
+    }
+    td,th {
+        padding: 0.2em 0.5em;
+        font-size: .9em;
+    }
+    #arquee .thead > span {
+        padding: 0 0.5em;
+    }
+    #marquee div span {
+        font-size: .8em;
+    }
+    h2 {
+        font-size: 1.2em;
+        margin: 0.3em 0;
+    }
+    h1 {
+        line-height: 1.5;
+        font-size: 1.5em;
+        padding: 0.5em;
+    }
+    .refreshTime {
+        font-size: 0.65em;
+    }
+}
+
+.dayType {
+  position: absolute;
+  left: 2.5em;
+  top: 1.3em;
+}
+.dayType button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  color: #fff;
+  margin: 0 0 0 -4px;
+  border: 1px solid #2196f3;
+  background-color: #1b2d42;
+}
+.dayType button.active {
+  background-color: #2196f3;
+  color: #fff;
+}
+.dayType button:first-child {
+  border-radius: 3px 0 0 3px;
+}
+.dayType button:last-child {
+  border-radius: 0 3px 3px 0;
+}

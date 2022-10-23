@@ -1,0 +1,86 @@
+<div class="wrapper">
+<h1>Dashboard
+<span class="refreshTime">Refresh time: {{refreshTime}}</span>
+</h1>
+<span class="dayType">
+  <button (click)="changeDay('real_time')"class="{{type === 'real_time'?'active':''}}">Real Time</button>
+  <button (click)="changeDay('1')"class="{{type === '1'?'active':''}}">1 day</button>
+  <button (click)="changeDay('3')"class="{{type === '3'?'active':''}}">3 days</button>
+  <button (click)="changeDay('7')"class="{{type === '7'?'active':''}}">7 days</button>
+
+</span>
+
+<div class="map" style="background-image:url(../assets/img/map.svg)">
+  <svg width="100%" height="40vh">
+    <g *ngFor="let row of BSList">
+      <image [attr.x]="row.BSLocX - filedWidth/2"
+            [attr.y]="row.BSLocY - filedHeight/2"
+            [attr.width]="filedWidth"
+            [attr.height]="filedHeight"
+            [attr.xlink:href]="row.imgUrl"/>
+
+      <text [attr.x]="row.BSLocX -10+ filedWidth/2"
+            [attr.y]="row.BSLocY + 15 + filedHeight/2"
+            text-anchor="middle">
+        {{row.BSName}} {{row.Status}}
+      </text>
+    </g>
+    <g *ngFor="let row of BSUEList">
+      <g *ngFor="let child of row['UEList']">
+        <image [attr.x]="child.UELocX- filedWidth/2"
+              [attr.y]="child.UELocY - filedHeight/2"
+              [attr.width]="filedWidth"
+              [attr.height]="filedHeight"
+              [attr.xlink:href]="child.imgUrl"/>
+        <line
+        [attr.x1]="child.BSLocX"
+        [attr.y1]="child.BSLocY"
+        [attr.x2]="child.UELocX"
+        [attr.y2]="child.UELocY"
+        [style.stroke]="child.color"
+        style="stroke-width:2;stroke-dasharray:4" />
+      </g>
+    </g>
+  </svg>
+</div>
+<div class="row">
+  <span>
+    <h2>Energy Consumption</h2>
+    <p-chart type="line" [data]="energyData" [options]="energyOptions" width="100%" height="30vh"></p-chart>
+    <table>
+      <tr>
+        <th>{{energyTotalText()}} Energy Consumption</th>
+        <td>{{todayEnergyConsumption}} Wh</td>
+      </tr>
+      <tr>
+        <th>Energy Saving</th>
+        <td>{{energySaving}} Wh</td>
+      </tr>
+      <tr>
+        <th>Energy Saving Ratio</th>
+        <td>{{energySavingRatio}}%</td>
+      </tr>
+    </table>
+  </span>
+
+
+  <span class="Traffic">
+    <h2>Taffic Load</h2>
+    <span>
+      <p-chart type="line" [data]="throughputData" [options]="throughputOptions" width="100%" height="30vh"></p-chart>
+    </span>
+    <span *ngIf="showTafficTable">
+      <div id="arquee">
+          <div class="thead">
+            <span *ngFor="let list of throughputUEsOfLable" [style.color]="list.color" [style.width]="getThroughThTdWidth()">{{list.column}}</span>
+          </div>
+          <div id="marquee">
+            <div *ngFor="let list of throughputTDList">
+              <span *ngFor="let opt of list" [style.color]="opt.color" [style.width]="getThroughThTdWidth()">{{opt.label}}</span>
+            </div>
+          </div>
+      </div>
+    </span>
+  </span>
+</div>
+
